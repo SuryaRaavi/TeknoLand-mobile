@@ -1,10 +1,11 @@
 Nama: Surya Raavi Adiputra
 NPM: 2206082404
 
-## Tugas 7
+# Tugas 7
 
-# 1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
-: - Stateless widget adalah sebuah keadaan dimana widget dalam keadaan yang statis,
+## 1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
+: 
+  - Stateless widget adalah sebuah keadaan dimana widget dalam keadaan yang statis,
     sedangkan stateful widget adalah sebuah keadaan dimana widget dalam keadaan yang dapat berubah-ubah. Keadaan (state) adalah kumpulan nilai atau data yang mengatur perilaku dari widget.
   - Dalam implementasinya, stateless widget memiliki satu objek yang mewakili widget
     widget tersebut, sedangkan stateful widget memiliki dua objek, yaitu objek StatefulWidget itu sendiri dan objek State yang mengatur perilaku widget itu.
@@ -13,8 +14,9 @@ NPM: 2206082404
   - Stateless widget cocok digunakan untuk widget yang sifatnya statis atau tidak  
     memerlukan perubahan nilai, seperti teks, ikon, atau gambar. Sementara itu, stateful widget cocok digunakan untuk widget yang sifatnya dinamis atau memerlukan perubahan nilai, seperti button, radiobutton, dan slider.
 
-# 2. Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
-: - StatelessWidget: Widget ini adalah widget yang bersifat statis. Widget ini hanya 
+## 2. Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
+: 
+  - StatelessWidget: Widget ini adalah widget yang bersifat statis. Widget ini hanya 
     memiliki satu metode yang wajib diimplementasikan, yaitu metode build, yang mengembalikan widget yang akan ditampilkan. Widget ini cocok digunakan untuk widget yang sifatnya statis atau tidak memerlukan perubahan nilai, seperti teks, ikon, atau gambar, seperti widget yang ada pada class MyHomePage dan ShopCard.
   - Scaffold: Widget ini adalah widget yang menyediakan kerangka dasar untuk membuat 
     tampilan aplikasi. Widget ini memiliki beberapa properti yang dapat digunakan untuk menentukan bagian-bagian dari tampilan, seperti appBar, body, drawer, floatingActionButton, dan bottomNavigationBar. Widget ini cocok digunakan untuk widget yang menjadi kontainer utama dari halaman aplikasi. Class yang menggunakan widget ini adalah MyHomePage.
@@ -39,8 +41,9 @@ NPM: 2206082404
   - Icon: Widget ini adalah widget yang dapat menampilkan ikon atau simbol pada layar. 
     Widget ini memiliki satu properti yang wajib diisi, yaitu icon, yang merupakan ikon yang akan ditampilkan. Widget ini juga memiliki beberapa properti yang dapat digunakan untuk menentukan tampilan dan gaya dari ikon, seperti size, color, semanticLabel, dan textDirection. Widget ini cocok digunakan untuk widget yang ingin menampilkan ikon yang merepresentasikan fungsi atau informasi, seperti menu, tombol, atau label. Class yang menggunakan Icon adalah ShopCard.
 
-# 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-: - Instalasi flutter dan android studio serta melakukan konfigurasi pada aplikasi  
+## 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+: 
+  - Instalasi flutter dan android studio serta melakukan konfigurasi pada aplikasi  
     yang sudah diinstal sesuai tutorial.
   - Pembuatan direktori baru untuk menyimpan proyek flutter bernama TeknoLand_mobile dan 
     pembuatan proyek flutter baru dengan nama teknoland melalui terminal di direktori TeknoLand_mobile dengan perintah flutter create teknoland.

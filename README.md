@@ -1,4 +1,5 @@
 Nama: Surya Raavi Adiputra
+
 NPM: 2206082404
 
 # Tugas 7
@@ -37,9 +38,11 @@ NPM: 2206082404
   - InkWell: Widget ini adalah widget yang dapat membuat area yang responsive terhadap 
     sentuhan. Widget ini memiliki beberapa properti yang dapat digunakan untuk menentukan tampilan dan fungsi dari area sentuhan, seperti child, onTap, onLongPress, splashColor, highlightColor, dan radius. Widget ini cocok digunakan untuk widget yang ingin menambahkan efek visual dan interaksi pada konten, seperti gambar, kartu, atau tombol. Class yang menggunakan InkWell adalah ShopCard.
   - Container: Widget ini adalah widget yang dapat menjadi kontainer atau wadah untuk 
-    widget lainnya. Widget ini memiliki beberapa properti yang dapat digunakan untuk menentukan tampilan dan fungsi dari kontainer, seperti child, padding, margin, decoration, alignment, width, height, dan constraints. Widget ini cocok digunakan untuk widget yang ingin menyesuaikan ukuran, posisi, atau dekorasi dari konten, seperti teks, gambar, atau form. Class yang menggunakan Container adalah ShopCard.
+    widget lainnya. Widget ini memiliki beberapa pr operti yang dapat digunakan untuk menentukan tampilan dan fungsi dari kontainer, seperti child, padding, margin, decoration, alignment, width, height, dan constraints. Widget ini cocok digunakan untuk widget yang ingin menyesuaikan ukuran, posisi, atau dekorasi dari konten, seperti teks, gambar, atau form. Class yang menggunakan Container adalah ShopCard.
   - Icon: Widget ini adalah widget yang dapat menampilkan ikon atau simbol pada layar. 
     Widget ini memiliki satu properti yang wajib diisi, yaitu icon, yang merupakan ikon yang akan ditampilkan. Widget ini juga memiliki beberapa properti yang dapat digunakan untuk menentukan tampilan dan gaya dari ikon, seperti size, color, semanticLabel, dan textDirection. Widget ini cocok digunakan untuk widget yang ingin menampilkan ikon yang merepresentasikan fungsi atau informasi, seperti menu, tombol, atau label. Class yang menggunakan Icon adalah ShopCard.
+  - MaterialApp: Widget ini berfungsi untuk membungkus sejumlah widget lain yang umumnya 
+    dibutuhkan untuk aplikasi yang menggunakan Material Design. Dalam widget ini, didefinisikan beberapa properti, yaitu title yang berfungsi untuk memberi judul aplikasi, theme yang berfungsi untuk memberikan tema yang digunakan pada aplikasi, seperti warna, font, dan ukuran teks, dan home yang berfungsi untuk menentukan widget yang akan ditampilkan pada rute default aplikasi, yaitu ./ dimana widget yang digunakan adalah widget yang didefinisikan pada class MyHomePage. Implementasi widget ini terletak pada file main.dart.
 
 ## 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 : 

@@ -98,7 +98,7 @@ class ShopCard extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ); 
   }
 }
 class ShopItem {

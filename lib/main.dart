@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teknoland/menu.dart';
+import 'package:teknoland/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());

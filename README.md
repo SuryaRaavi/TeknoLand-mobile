@@ -2,6 +2,164 @@ Nama: Surya Raavi Adiputra
 
 NPM: 2206082404
 
+# Tugas 8
+
+## 1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
+: 
+  Dalam Flutter, Navigator.push() dan Navigator.pushReplacement() adalah dua metode yang digunakan untuk menavigasi ke layar baru. Perbedaan utama antara keduanya adalah bahwa Navigator.push() menambahkan rute baru ke dalam tumpukan rute, sedangkan Navigator.pushReplacement() mengganti rute teratas dalam tumpukan rute dengan rute baru. 
+  - Contoh implementasi Navigator.push(): 
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SecondScreen()),
+    );
+  - Contoh implementasi Navigator.pushReplacement():
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => SecondScreen()),
+    );
+
+## 2. Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!
+:
+  - Container: Widget ini digunakan untuk mengatur tampilan widget lainnya. Container  dapat digunakan untuk mengatur margin, padding, warna, dan sebagainya. Container juga dapat digunakan untuk mengatur ukuran widget lainnya.
+  - Row: Widget ini digunakan untuk mengatur widget secara horizontal. Row dapat digunakan untuk mengatur susunan tombol, teks, dan sebagainya.
+  - Column: Widget ini digunakan untuk mengatur widget secara vertikal. Column dapat digunakan untuk mengatur susunan tombol, teks, dan sebagainya.
+  - Stack: Widget ini digunakan untuk mengatur widget secara tumpukan. Stack dapat digunakan untuk menumpuk widget seperti gambar, teks, dan sebagainya.
+  - Expanded: Widget ini digunakan untuk mengisi ruang kosong dalam layout. Expanded dapat digunakan untuk mengisi ruang kosong dalam Row atau Column.
+  - ListView: Widget ini digunakan untuk menampilkan daftar widget dalam bentuk scrollable. ListView dapat digunakan untuk menampilkan daftar teks, gambar, dan sebagainya.
+  - GridView: Widget ini digunakan untuk menampilkan daftar widget dalam bentuk grid. GridView dapat digunakan untuk menampilkan daftar gambar, teks, dan sebagainya.
+  - Wrap: Widget ini digunakan untuk mengatur widget dalam bentuk wrap. Wrap dapat digunakan untuk mengatur susunan tombol, teks, dan sebagainya.
+  - SizedBox: Widget ini digunakan untuk mengatur ukuran widget. SizedBox dapat digunakan untuk mengatur ukuran lebar dan tinggi widget.
+  - AspectRatio: Widget ini digunakan untuk mengatur rasio aspek widget. AspectRatio dapat digunakan untuk mengatur rasio aspek gambar, video, dan sebagainya.
+
+## 3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
+:
+  Dalam tugas ini, saya menggunakan TextFormField sebagai elemen input untuk menerima input dari pengguna. Implementasi TextFormField ini saya gunakan untuk mengambil masukan nama, harga, jumlah, dan deskripsi produk dari user dalam file shoplist_form.dart. Di dalam TextFormField, saya juga mendefinisikan beberapa elemen lain, yaitu InputDecoration untuk memberikan atribut tambahan pada field input dan OutlineInputBorder untuk mengatur border field input.
+
+## 4. Bagaimana penerapan clean architecture pada aplikasi Flutter?
+:
+  Clean Architecture adalah suatu konsep arsitektur perangkat lunak yang bertujuan untuk memisahkan konsep bisnis (domain logic) dari detail teknis, seperti antarmuka pengguna dan penyimpanan data. Dalam konteks Flutter, penerapan Clean Architecture dapat melibatkan pemisahan kode ke dalam lapisan-lapisan utama domain layer (lapisan inti yang berisi logika bisnis atau aturan domain), data layer (lapisan yang bertanggung jawab untuk mengakses dan menyimpan data), dan presentation layer (lapisan yang menangani interaksi pengguna).
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step!
+:
+  - Implementasi Navigator.push() dan Navigator.pushReplacement()
+    Navigator.push() digunakan untuk menambahkan rute baru pada stack berdasarkan context yang diambil dimana nantinya tampilan akan berubah sesuai tampilan rute tersebut. Contohnya, dalam tugas ini, saya menerapkan perintah di bawah ini dalam file shop_card.dart untuk menambahkan rute baru pada stack dan mengubah halaman ke halaman yang didefinisikan di kelas ShopFormPage.
+    if (item.name == "Tambah Produk") {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ShopFormPage()));
+    }
+    Sementara itu, untuk implmentasi Navigator.pushReplacement digunakan untuk mengganti rute teratas dari stack dengan rute baru. Contohnya, dalam tugas ini, saya menerapkan perintah di bawah ini dalam file left_drawer.dart untuk mengganti rute teratas atau rute halaman saat ini dengan rute baru dengan tampilan yang didefinisikan di kelas MyHomePage. 
+    onTap: () {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyHomePage(),
+          )
+      );
+    },
+  - Implementasi layout widget
+    Dalam tugas ini, saya menggunakan beberapa layout widget, yaitu:
+    1. Column
+       child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: "Nama Produk",
+                        labelText: "Nama Produk",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                      onChanged: (String? value) {
+                        setState(() {
+                          _name = value!;
+                        });
+                      },
+                      validator: (String? value) {
+                        if (value == null || value.isEmpty) {
+                          return "Nama tidak boleh kosong!";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                ]
+              )
+        Implementasi layout Column dalam file shoplist_form.dart tersebut digunakan untuk mengatur elemen child di dalamnya secara vertikal.
+    2. Allign
+       Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                  MaterialStateProperty.all(Colors.indigo),
+                ),
+              )
+            )
+        ......
+       )
+       Implementasi layout Align dalam file shoplist_form.dart digunakan untuk mengatur letak elemen child relatif dengan parent widgetnya.
+    3. ListTile
+       ListTile(
+            leading: const Icon(Icons.home_outlined),
+            title: const Text('Halaman Utama'),
+            // Bagian redirection ke MyHomePage
+            onTap: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyHomePage(),
+                  ));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_shopping_cart),
+            title: const Text('Tambah Produk'),
+            // Bagian redirection ke ShopFormPage
+            onTap: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyHomePage(),
+                  ));
+            },
+          ),
+       Implementasi ListTile dalam file left_drawer.dart digunakan untuk membuat baris Halaman Utama yang berisi teks "Halaman Utama" beserta ikonnya dan Tambah Produk yang berisi teks "Tambah Produk" beserta ikonnya.
+    4. GridView
+        GridView.count(
+          // Container pada card kita.
+          primary: true,
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 3,
+          shrinkWrap: true,
+          children: items.map((ShopItem item) {
+            // Iterasi untuk setiap item
+            return ShopCard(item);
+          }).toList(),
+          ...
+        )
+        Implementasi GridView pada file menu.dart digunakan untuk mengatur posisi elemen-elemen Lihat Produk, Tambah Produk, dan Logout dalam bentuk grid.
+  - Implementasi elemen input pada file form
+    TextFormField(
+      decoration: InputDecoration(
+        hintText: "Nama Produk",
+        labelText: "Nama Produk",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+      ),
+    )
+    Implementasi elemen input yang digunakan dalam file shoplist_form.dart adalah TextFormField yang mana dalam file tersebut saya juga mendefinsikan beberapa labelText, seperti harga produk, jumlah produk, dan deskripsi produk.
+  - Implementasi clean architecture
+    Dalam tugas ini, saya mengimplementasikan clean architecture dengan melakukan pemisahan kode dengan membuat beberapa file untuk meningkatkan readibility dan modularity. Contoh clean architecture yang saya terapkan dalam tugas ini, seperti dengan memindahkan class ShopCard dari file menu.dart ke sebuah file baru bernama shop_card.dart yang mana nantinya file menu.dart akan berperan sebagai lapisan domain, sedangkan ShopCard berperan sebagai lapisan presentasi untuk mengatur halaman yang akan ditampilkan selanjutnya ketika user melakukan aksi. Tidak hanya itu, terdapat juga file shoplist_form.dart sebagai lapisan presentasi yang berperan untuk menampilkan form penambahan produk.
+    
+
 # Tugas 7
 
 ## 1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?

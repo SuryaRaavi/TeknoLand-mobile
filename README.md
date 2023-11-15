@@ -155,7 +155,7 @@ NPM: 2206082404
         ),
       ),
     )
-    Implementasi elemen input yang digunakan dalam file shoplist_form.dart adalah TextFormField yang mana dalam file tersebut saya juga mendefinsikan beberapa labelText, seperti harga produk, jumlah produk, dan deskripsi produk.
+    Implementasi elemen input yang digunakan dalam file shoplist_form.dart adalah TextFormField yang mana dalam file tersebut saya juga mendefinisikan beberapa labelText, seperti harga produk, jumlah produk, dan deskripsi produk.
   - Implementasi clean architecture
     Dalam tugas ini, saya mengimplementasikan clean architecture dengan melakukan pemisahan kode dengan membuat beberapa file untuk meningkatkan readibility dan modularity. Contoh clean architecture yang saya terapkan dalam tugas ini, seperti dengan memindahkan class ShopCard dari file menu.dart ke sebuah file baru bernama shop_card.dart yang mana nantinya file menu.dart akan berperan sebagai lapisan domain, sedangkan ShopCard berperan sebagai lapisan presentasi untuk mengatur halaman yang akan ditampilkan selanjutnya ketika user melakukan aksi. Tidak hanya itu, terdapat juga file shoplist_form.dart sebagai lapisan presentasi yang berperan untuk menampilkan form penambahan produk.
     

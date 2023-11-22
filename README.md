@@ -2,6 +2,139 @@ Nama: Surya Raavi Adiputra
 
 NPM: 2206082404
 
+# Tugas 9
+
+## 1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+:
+  Kita tetap bisa melakukan pengambilan data JSON tanpa membuat model terlebih dahulu. Akan tetapi, dalam pengambilan data JSON, disarankan membuat model terlebih dahulu karena dengan adanya model kita bisa melakukan modifikasi data JSON berdasarkan atribut yang sudah didefinisikan di model, membuat data yang kita gunakan lebih konsisten, dan meningkatkan keamanan dan validasi data JSON yang tidak sesuai model atau mengandung kesalahan sintaks.
+
+## 2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+:
+  CookieRequest berfungsi untuk mengirim permintaan HTTP yang melampirkan cookie di dalamnya sehingga dengan adanya CookieRequest ini, kita bisa mengirim cookie ke sesama server setiap kali melakukan permintaan HTTP, tanpa harus login lagi. Instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter karena kita mungkin perlu mengakses data yang sama dari server di berbagai halaman atau fitur aplikasi. Jika kita tidak membagikan instance CookieRequest, kita harus membuat instance baru setiap kali kita ingin mengirim permintaan HTTP dengan cookie yang mana akan memakan banyak memori dan mengurangi kinerja aplikasi. 
+
+## 3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+:
+  Mekanisme pengambilan data dari JSON untuk ditampilkan di flutter sebagai berikut.
+  1. Membuat sebuah permintaan HTTP (Hypertext Transfer Protocol) ke sebuah API (Application Programming Interface) endpoint yang menyediakan data JSON. Dalam hal ini, karena kita ingin mengambil data dari JSON, kita akan menggunakan method GET.
+  2. Menerima sebuah respons HTTP dari server yang berisi data JSON. Respons HTTP adalah sebuah cara untuk mengirimkan data dari server ke aplikasi, yang memiliki beberapa komponen seperti status code, header, dan body. Secara umum, informasi yang ingin kita ambil berada pada body.
+  3. Mengurai atau mem-parsing data JSON menjadi sebuah objek atau struktur data Dart yang dapat kita manipulasi dan tampilkan di aplikasi Flutter. Sebelum melakukan parsing data JSON ke struktur data dart, kita harus melakukan generate struktrur data JSON terlebih dahulu yang bisa dilakukan secara manual atau melalui web yang bisa otomatis menghasilkan kode konversi data JSON ke struktur data Dart, seperti quicktype. Setelah itu, kode yang sudah kita salin dari quicktype, dilampirkan pada file baru yang khusus untuk mengambil data unntuk nantinya bisa diproses oleh flutter.
+  4. Menampilkan data JSON yang sudah diurai ke dalam widget Flutter yang sesuai dengan kebutuhan kita. Widget dapat dibuat dengan menggunakan konstruktor bawaan dari Flutter, misalnya Text, Image, RaisedButton, Column, dan lain-lain. 
+
+## 4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+:
+  Mekanisme autentikasi dari input data akun pada Flutter ke Django dapat dilakukan melalui tahapan berikut.
+  1. Membuat sebuah form Login di Flutter yang memungkinkan pengguna untuk memasukkan data akun seperti username dan password. 
+  2. Membuat sebuah fungsi Login di Flutter yang bertugas untuk mengirim data akun dari form Login ke Django melalui permintaan HTTP POST. Fungsi Login juga bertugas untuk menerima respons HTTP dari Django yang berisi status dan hasil dari autentikasi.
+  3. Membuat sebuah view Login di Django yang bertugas untuk menerima data akun dari Flutter melalui permintaan HTTP POST. View Login akan mengatur logika bisnis dari aplikasi web, seperti mengambil, memproses, dan mengembalikan data, serta memeriksa data akun dengan menggunakan fungsi authenticate yang disediakan oleh Django, yang akan membandingkan data akun dengan data yang tersimpan di database.
+  4. Membuat sebuah respons HTTP di Django yang bertugas untuk mengirim status dan hasil dari autentikasi ke Flutter. Respons HTTP adalah sebuah cara untuk mengirim data dari server ke aplikasi, yang memiliki beberapa komponen seperti status code, header, dan body. Status code adalah sebuah angka yang menunjukkan hasil dari permintaan HTTP, misalnya 200 berarti sukses, 401 berarti tidak terotentikasi, dan 403 berarti tidak memiliki izin. Header adalah sebuah informasi tambahan yang menyertai respons HTTP, misalnya Content-Type, Content-Length, dan Set-Cookie. Body adalah sebuah bagian utama dari respons HTTP yang berisi data yang kita kirim, dalam hal ini status dan hasil dari autentikasi.
+  5. Membuat sebuah fungsi Navigate di Flutter yang bertugas untuk mengarahkan pengguna ke halaman atau menu yang sesuai dengan hasil dari autentikasi. Fungsi Navigate juga bertugas untuk menampilkan pesan atau notifikasi yang sesuai dengan hasil dari autentikasi, misalnya menggunakan widget SnackBar atau AlertDialog.
+
+## 5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+  1. Widget dalam file list_product.dart
+    - MaterialApp: Widget utama yang mengonfigurasi pengaturan tertinggi untuk aplikasi Flutter.
+    - Scaffold: Mengimplementasikan struktur visual dasar desain material dengan memberikan kerangka kerja untuk AppBar, Drawer, BottomNavigationBar, FloatingActionButton, dan Body.
+    - AppBar: Mewakili bilah atas aplikasi yang memiliki judul "Product".
+    - Drawer: Digunakan untuk kostum left drawer.
+    - LeftDrawer: Widget kustom (tidak diberikan dalam potongan kode) yang mungkin menentukan konten dari menu samping.
+    - FutureBuilder: Digunakan untuk secara asinkron mengambil data produk dari internet.
+    - Center: Digunakan ketika data masih dimuat untuk menampilkan CircularProgressIndicator.
+    - ListView.builder: Digunakan untuk menampilkan daftar produk.
+    - Container: Digunakan untuk membuat wadah untuk setiap produk dalam daftar.
+    - Column: Digunakan untuk mengatur informasi produk (nama, harga, deskripsi, dan jumlah) secara vertikal.
+    - Text: Digunakan untuk menampilkan detail produk seperti nama, harga, deskripsi, dan jumlah.
+    - SizedBox: Digunakan untuk menambahkan ruang antara berbagai informasi.
+    - CircularProgressIndicator: Widget yang menunjukkan lingkaran berputar/buffering yang mengindikasikan bahwa aplikasi sedang sibuk.
+    - TextStyle: Mendefinisikan gaya untuk teks, warna, ukuran font, dan ketebalan font.
+  2. Widget dalam file login.dart
+    - MaterialApp: Widget utama yang mengonfigurasi pengaturan tertinggi untuk aplikasi Flutter.
+    - AppBar: Digunakan untuk menampilkan judul "Login".
+    - TextField: Digunakan untuk input username dan password dari user.
+    - ElevatedButton: Tombol untuk melakukan proses login. Ketika tombol ditekan, akan memeriksa kredensial, memproses respons, dan menavigasi pengguna ke halaman utama (MyHomePage) jika login berhasil.
+    - onPressed (pada ElevatedButton): Logika yang dijalankan saat tombol login ditekan. Ini mengambil nilai dari controller username dan password, memeriksa kredensial dengan menggunakan CookieRequest, dan menangani respons sesuai dengan keberhasilan atau kegagalan login.
+    - AlertDialog: Digunakan untuk menampilkan pesan kesalahan.
+  3. Widget dalam file menu.dart
+    - Scaffold: Digunakan untuk menyediakan struktur dasar aplikasi Flutter, termasuk app bar, drawer, dan body.
+    - AppBar: Digunakan untuk mendefinisikan bilah judul aplikasi, yang biasanya menyertakan judul, ikon leading (misalnya, untuk navigasi kembali), dan tindakan (misalnya, untuk menambahkan item baru).
+    - LeftDrawer: Digunakan sebagai widget kustom yang mengimplementasikan drawer yang rata kiri dengan daftar item.
+    - SingleChildScrollView: Digunakan untuk membungkus widget anak dan memungkinkannya untuk menggulir secara vertikal jika kontennya melebihi ruang yang tersedia.
+    - Padding: Digunakan untuk menambahkan padding di sekitar widget anak.
+    - Column: Widget ini mengatur anak-anaknya secara vertikal, satu di bawah yang lain.
+    - Text: Digunakan untuk menampilkan teks dengan properti yang dapat dikonfigurasi seperti ukuran font, berat, dan perataan.
+    - GridView.count: Digunakan untuk mengatur anak-anaknya dalam pola grid dengan jumlah kolom yang ditentukan.
+    - ShopCard: Digunakan untuk menampilkan nama, ikon, dan warna item, dan merespons ketukan dengan menavigasi ke layar ShopListForm.
+    - ShopItem: Digunakan untuk menyimpan nama, ikon, dan warna item.
+    - ProductData: Digunakan untuk menyimpan informasi tentang produk yang dipilih saat ini yang mencakup atribut nama produk, harga, jumlah, dan deskripsi.
+  4. Widget dalam file shoplist_form.dart
+    - Scaffold: Digunakan untuk mengatur struktur dasar aplikasi, dengan app bar di atas, drawer di sisi kiri, dan body di tengah.
+    - AppBar: Digunakan untuk menampilkan judul aplikasi, ikon menu, dan ikon untuk menambahkan produk baru.
+    - Form: Digunakan untuk mengumpulkan input untuk nama produk, harga, jumlah, dan deskripsi.
+    - SingleChildScrollView: Digunakan untuk memungkinkan pengguna menggulir melalui form.
+    - Column:  Digunakan untuk mengatur bidang formulir dan tombol "Simpan".
+    - Padding: Digunakan untuk menambahkan ruang di sekitar bidang formulir dan tombol "Simpan".
+    - TextFormField: Digunakan untuk mengumpulkan input untuk nama produk, harga, jumlah, dan deskripsi.
+    - ElevatedButton: Digunakan untuk membuat tombol "Simpan" yang mengirimkan data formulir ke server.
+    - SnackBar: Digunakan untuk menampilkan pesan yang menunjukkan apakah produk berhasil disimpan atau jika ada kesalahan.
+  5. Widget dalam file left_drawer.dart
+    - Drawer: digunakan untuk menyediakan menu navigasi dengan tautan ke halaman beranda, halaman tambah produk, dan halaman daftar produk.
+    - ListView: Digunakan untuk menampilkan item menu navigasi di dalam widget Drawer.
+    - DrawerHeader: Digunakan untuk membuat header dengan latar belakang biru, logo TeknoLand, dan deskripsi aplikasi.
+    - ListTile: Digunakan untuk membuat item menu navigasi di dalam widget Drawer. Setiap widget ListTile memiliki ikon leading, judul yang mewakili opsi navigasi, dan callback onTap yang menangani navigasi saat item ditekan.
+    - Text: digunakan untuk menampilkan logo TeknoLand, deskripsi aplikasi, dan judul item menu navigasi.
+    - Icon: Digunakan untuk menampilkan ikon leading untuk item menu navigasi.
+    - Padding: Digunakan untuk menambahkan padding di sekitar deskripsi aplikasi di dalam widget DrawerHeader.
+  6. Widget dalam file shop_card.dart
+    - Material: Digunakan untuk memberikan latar belakang berwarna untuk kartu belanja.
+    - InkWell: Digunakan untuk membuat kartu belanja merespons ketukan. Saat kartu belanja diketuk, callback onTap dipanggil.
+    - Container: Digunakan untuk menambahkan padding pada ikon dan teks dalam kartu belanja.
+    - Center: Digunakan untuk memusatkan ikon dan teks dalam kartu belanja.
+    - Column: Digunakan untuk mengatur ikon dan teks dalam kartu belanja.
+    - Icon: Digunakan untuk menampilkan ikon untuk item kartu belanja.
+    - Text: Digunakan untuk menampilkan nama item kartu belanja.
+    - Padding: Digunakan untuk menambahkan padding di antara ikon dan teks dalam kartu belanja.
+  7. Widget dalam file main.dart
+    - Provider: Digunakan untuk menyediakan objek CookieRequest ke seluruh pohon widget sehingga widget apa pun di aplikasi dapat mengakses objek CookieRequest menggunakan metode context.watch().
+    - MaterialApp: Digunakan untuk mendefinisikan judul, tema, dan halaman beranda aplikasi.
+    - LoginPage: Digunakan untuk menampilkan layar login dengan mengumpulkan kredensial login pengguna dan mengirimkannya ke server.
+
+## 5.  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! 
+:
+  Secara keseluruhan, implementasi checklist diatas sesuai dengan tutorial, tetapi ada beberapa hal yang saya tambahkan pada file product.dart dan shoplist_dart dimana saya menambahkan atribut amount/jumlah produk dengan tampilan seperti dibawah ini.
+  - File product.dart
+    Fields({
+      required this.user,
+      required this.name,
+      required this.amount,
+      required this.description,
+      required this.price,
+    });
+    factory Fields.fromJson(Map<String, dynamic> json) => Fields(
+      user: json["user"],
+      name: json["name"],
+      amount: json["amount"],
+      description: json["description"],
+      price: json["price"],
+    );
+  - File shoplist_form.dart
+    onPressed: () async {
+    if (_formKey.currentState!.validate()) {
+      // Kirim ke Django dan tunggu respons
+      // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
+      final response = await request.postJson(
+          "http://127.0.0.1:8000/create-flutter/",
+          jsonEncode(<String, String>{
+            'name': _name,
+            'price': _price.toString(),
+            'description': _description,
+            'amount': _amount.toString(),
+            // TODO: Sesuaikan field data sesuai dengan aplikasimu
+          }));
+          ...
+      }
+      ...
+    }  
+
+
+
 # Tugas 8
 
 ## 1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
@@ -158,7 +291,6 @@ NPM: 2206082404
     Implementasi elemen input yang digunakan dalam file shoplist_form.dart adalah TextFormField yang mana dalam file tersebut saya juga mendefinisikan beberapa labelText, seperti harga produk, jumlah produk, dan deskripsi produk.
   - Implementasi clean architecture
     Dalam tugas ini, saya mengimplementasikan clean architecture dengan melakukan pemisahan kode dengan membuat beberapa file untuk meningkatkan readibility dan modularity. Contoh clean architecture yang saya terapkan dalam tugas ini, seperti dengan memindahkan class ShopCard dari file menu.dart ke sebuah file baru bernama shop_card.dart yang mana nantinya file menu.dart akan berperan sebagai lapisan domain, sedangkan ShopCard berperan sebagai lapisan presentasi untuk mengatur halaman yang akan ditampilkan selanjutnya ketika user melakukan aksi. Tidak hanya itu, terdapat juga file shoplist_form.dart sebagai lapisan presentasi yang berperan untuk menampilkan form penambahan produk.
-    
 
 # Tugas 7
 

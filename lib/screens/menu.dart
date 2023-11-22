@@ -72,4 +72,20 @@ class ShopItem {
 
   ShopItem(this.name, this.icon, this.color);
 }
+class ProductData {
+  String name = "";
+  int price = 0;
+  int amount = 0;
+  String description = "";
+
+  // Buat singleton instance
+  static final ProductData _instance = ProductData._internal();
+
+  factory ProductData() {
+    return _instance;
+  }
+
+  ProductData._internal();
+}
+
 
